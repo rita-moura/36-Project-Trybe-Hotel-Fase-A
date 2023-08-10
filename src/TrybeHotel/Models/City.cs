@@ -5,6 +5,8 @@ namespace TrybeHotel.Models
 
     // 1. Implemente as models da aplicação
     public class City {
-
+        public int CityId {get; set;}
+        public string? Name {get; set;}
+        public Hotel? Hotels {get; set;}
     }
 }
