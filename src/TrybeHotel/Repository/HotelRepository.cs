@@ -1,5 +1,6 @@
 using TrybeHotel.Models;
 using TrybeHotel.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace TrybeHotel.Repository
 {
@@ -14,7 +15,19 @@ namespace TrybeHotel.Repository
         // 4. Desenvolva o endpoint GET /hotel
         public IEnumerable<HotelDto> GetHotels()
         {
-            throw new NotImplementedException();
+            var hotels = _context.Hotels
+            .Include(h => h.City)
+            .Select(hotel => new HotelDto
+            {
+                HotelId = hotel.HotelId,
+                Name = hotel.Name,
+                Address = hotel.Address,
+                CityId = hotel.CityId,
+                CityName = hotel.City.Name
+            })
+            .ToList();
+
+            return hotels;
         }
         
         // 5. Desenvolva o endpoint POST /hotel
