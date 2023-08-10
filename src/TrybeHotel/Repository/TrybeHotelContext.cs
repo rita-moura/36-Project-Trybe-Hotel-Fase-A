@@ -6,9 +6,9 @@ public class TrybeHotelContext : DbContext, ITrybeHotelContext
 {
     public TrybeHotelContext(DbContextOptions<TrybeHotelContext> options) : base(options) { }
 
-    public DbSet<City> Cities { get; set; }
-    public DbSet<Hotel> Hotels { get; set; }
-    public DbSet<Room> Rooms { get; set; }
+    public DbSet<City> Cities { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public DbSet<Hotel> Hotels { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public DbSet<Room> Rooms { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
