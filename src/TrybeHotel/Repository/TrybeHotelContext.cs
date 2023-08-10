@@ -5,6 +5,7 @@ namespace TrybeHotel.Repository;
 public class TrybeHotelContext : DbContext, ITrybeHotelContext
 {
     public TrybeHotelContext(DbContextOptions<TrybeHotelContext> options) : base(options) { }
+    public TrybeHotelContext() { }
 
     public DbSet<City> Cities { get; set; } = null!;
     public DbSet<Hotel> Hotels { get; set; } = null!;
