@@ -10,8 +10,8 @@ using System.Text.Json;
 using System.Diagnostics;
 using System.Xml;
 using System.IO;
-
-
+using System.Text;
+using TrybeHotel.Dto;
 
 public class IntegrationTest: IClassFixture<WebApplicationFactory<Program>>
 {
@@ -74,5 +74,18 @@ public class IntegrationTest: IClassFixture<WebApplicationFactory<Program>>
         var response = await _clientTest.GetAsync(url);
         Assert.Equal(System.Net.HttpStatusCode.OK, response?.StatusCode);
     }
+    public async Task TestGetCity(string url)
+    {
+        var response = await _clientTest.GetAsync(url);
+        Assert.Equal(System.Net.HttpStatusCode.OK, response?.StatusCode);
+    }
 
+    [Theory(DisplayName = "Executando meus testes")]
+    [InlineData("/hotel")]
+    public async Task TestGetHotel(string url)
+    {
+        var response = await _clientTest.GetAsync(url);
+        Assert.Equal(System.Net.HttpStatusCode.OK, response?.StatusCode);
+    }
+    
 }
