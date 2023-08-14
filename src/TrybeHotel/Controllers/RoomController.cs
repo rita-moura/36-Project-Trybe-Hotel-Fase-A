@@ -30,7 +30,9 @@ namespace TrybeHotel.Controllers
         [HttpDelete("{RoomId}")]
         public IActionResult Delete(int RoomId)
         {
-            throw new NotImplementedException();
+            _repository.DeleteRoom(RoomId);
+            return NoContent();
+
         }
     }
 }
